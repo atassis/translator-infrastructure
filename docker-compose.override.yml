@@ -1,0 +1,19 @@
+version: '3'
+services:
+  translator:
+    build:
+      context: translator
+      dockerfile: Dockerfile.development
+    depends_on:
+      - redis
+      - db
+    links:
+      - db:db
+    restart: always
+    ports:
+      - 3000:3000
+    volumes:
+       - ./translator/src:/root/app/src
+    command: "watch"
+    environment:
+      - NODE_ENV:development

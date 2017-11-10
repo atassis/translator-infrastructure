@@ -1,0 +1,16 @@
+version: '3'
+services:
+  translator:
+    restart: always
+    volumes:
+      - ./logs:/root/app/logs
+  redis:
+    image: redis:alpine
+    restart: always
+  db:
+    image: mysql:5
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=privet
+      - MYSQL_DATABASE=temp
+    command: ["mysqld", "--character-set-server=utf8mb4", "--collation-server=utf8mb4_unicode_ci"]
