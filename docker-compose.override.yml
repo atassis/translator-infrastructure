@@ -4,16 +4,13 @@ services:
     build:
       context: translator
       dockerfile: Dockerfile.development
-    depends_on:
-      - redis
-      - db
-    links:
-      - db:db
-    restart: always
+    restart: on-failure
     ports:
       - 3000:3000
+      - 127.0.0.1:9229:9229
     volumes:
        - ./translator/src:/root/app/src
     command: "watch"
     environment:
-      - NODE_ENV:development
+      NODE_ENV: development
+      DB_URL: mysql://root:privet@db/temp?charset=utf8&timezone=UTC

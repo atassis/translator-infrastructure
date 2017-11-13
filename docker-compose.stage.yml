@@ -4,9 +4,9 @@ services:
     restart: always
     volumes:
       - ./logs:/root/app/logs
-  redis:
-    image: redis:alpine
-    restart: always
+#  redis:
+#    image: redis:alpine
+#    restart: always
   db:
     image: mysql:5
     restart: always

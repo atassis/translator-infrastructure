@@ -3,18 +3,18 @@ services:
   translator:
     build: ./translator
     depends_on:
-      - redis
+#      - redis
       - db
     links:
       - db:db
     restart: always
     ports:
       - 3000:3000
-  redis:
-    image: redis:alpine
-    logging:
-      driver: "none"
-    restart: always
+#  redis:
+#    image: redis:alpine
+#    logging:
+#      driver: "none"
+#    restart: always
   db:
     image: mysql:5
     restart: always
