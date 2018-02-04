@@ -13,4 +13,10 @@ services:
     command: "watch"
     environment:
       NODE_ENV: development
-      DB_URL: mysql://root:privet@db/temp?charset=utf8&timezone=UTC
+      DB_URL: mysql://root:privatepass@db/translator?charset=utf8&timezone=UTC
+  db:
+    ports:
+      - 3000:3000
+    environment:
+      - MYSQL_ROOT_PASSWORD=privatepass
+      - MYSQL_DATABASE=translator
