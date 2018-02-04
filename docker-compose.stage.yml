@@ -4,9 +4,9 @@ services:
     restart: always
     volumes:
       - ./logs:/root/app/logs
-  environment:
-    NODE_ENV: stage
-    DB_URL: mysql://root:privatepass@db/translator?charset=utf8&timezone=UTC
+    environment:
+      NODE_ENV: stage
+      DB_URL: mysql://root:privatepass@db/translator?charset=utf8&timezone=UTC
 #  redis:
 #    image: redis:alpine
 #    restart: always
